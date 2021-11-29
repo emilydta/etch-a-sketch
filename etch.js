@@ -10,7 +10,20 @@ gridSquares.forEach(gridSquare => {
         gridSquare.style.backgroundColor="black";
     });
  });
-    
+
+const resetButton = document.createElement('button');
+buttonContainer = document.getElementById("button-container");
+buttonContainer.appendChild(resetButton);
+resetButton.setAttribute("type", "button");
+resetButton.innerText="Reset Grid";
+
+function resetGrid() {
+    gridSquares.forEach(gridSquare => {
+        gridSquare.remove();
+    });
+};
+
+resetButton.addEventListener("click", () => resetGrid());    
 
 
 
