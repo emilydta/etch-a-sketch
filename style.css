@@ -1,11 +1,31 @@
+body {
+    font-family: arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 #container {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
-    width: 800px;
-    height: 800px;
+    width: 700px;
+    height: 700px;
 }
 
-div {
+.grid-square {
     border: 1px solid;
+}
+
+#button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
 }
