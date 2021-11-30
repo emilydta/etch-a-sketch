@@ -11,16 +11,14 @@ gridSquares.forEach(gridSquare => {
     });
  });
 
-const resetButton = document.createElement('button');
-
-
-
 function resetGrid() {
     gridSquares.forEach(gridSquare => {
         gridSquare.remove();
     });
-    let userInput = prompt("Enter a number from 1-100 to generate a new grid.");
-    newGridDimensions = userInput*userInput; 
+
+    let userInputtedGridValue = prompt("Enter a number from 1-100 to generate a new grid.");
+    
+    newGridDimensions = userInputtedGridValue*userInputtedGridValue; 
 
     for (let i = 0; i < newGridDimensions; i++) {
         let gridSquares = document.querySelectorAll(".grid-square");
@@ -34,7 +32,7 @@ function resetGrid() {
 };
 
 
-
+const resetButton = document.querySelector("button");
 resetButton.addEventListener("click", () => resetGrid());    
 
 
