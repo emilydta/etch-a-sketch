@@ -12,6 +12,7 @@ Completing this project has taught me:
   - How to use the forEach method and how it works.
   - Idiosyncracies of removing elements and their place in the nodelist and DOM.
   - How to add a gradient background.
+  - How to create a dynamic grid in JavaScript.
   
 
 Live version: https://emilydta.github.io/etch-a-sketch
