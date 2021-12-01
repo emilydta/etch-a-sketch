@@ -12,8 +12,9 @@ function createGrid(boxes) {
         const newGridSquare = document.createElement('div'); 
         container.appendChild(newGridSquare);
         newGridSquare.setAttribute("class", "grid-square");
-        blackSquares();
+        
     };
+    blackSquares();
 };
 
 createGrid(256);
@@ -52,7 +53,8 @@ function colorSquares() {
             });
         });
     colorButton.innerText="Black";
-    colorButton.addEventListener("click", () => blackSquares());
+    colorButton.removeEventListener("click", colorSquares);
+    colorButton.addEventListener("click", blackSquares);
 };
 
 function blackSquares() {
@@ -63,11 +65,12 @@ function blackSquares() {
             });
         });
     colorButton.innerText="Color";
-    colorButton.addEventListener("click", () => colorSquares());
+    colorButton.removeEventListener("click", blackSquares);
+    colorButton.addEventListener("click", colorSquares);
 }
 
 resetButton.addEventListener("click", () => resetGrid());
-colorButton.addEventListener("click", () => colorSquares());    
+    
 
 
 
