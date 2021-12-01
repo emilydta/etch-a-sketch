@@ -4,7 +4,7 @@ A simple online Etch-A-Sketch where the user can hover over the grid squares to 
 
 This project was completed as part of The Odin Project curriculum: https://www.theodinproject.com/
 
-<h2>Reflection<h2>
+<h2>Reflection</h2>
 
 Completing this project has taught me:
 
