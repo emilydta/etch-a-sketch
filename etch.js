@@ -1,8 +1,9 @@
 const errorMessage = document.getElementById("error-message");
-const resetButton = document.querySelector('button');
+const resetButton = document.getElementById('reset-button');
+const colorButton = document.getElementById('color-button');
 const errorText = document.createElement('p');
 
-const createGrid = (boxes) => {
+function createGrid(boxes) {
     for (let i = 0; i < boxes; i++) {
         let columns = Math.sqrt(boxes);
         let rows = Math.sqrt(boxes);
@@ -39,7 +40,25 @@ function resetGrid() {
     }
 };
 
-resetButton.addEventListener("click", () => resetGrid());    
+function randomiseColors() {
+    const colorArray = ["#DFFF00", "#FFBF00", "#FF7F50", "#DE3163", "#9FE2BF", "#40E0D0", "#6495ED", "#CCCCFF"];
+        let randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
+        return randomColor;
+}
+
+function colorSquares() {      
+    let gridSquares = document.querySelectorAll(".grid-square");
+        gridSquares.forEach(gridSquare => { 
+            gridSquare.addEventListener("mouseover", () => {
+                gridSquare.style.backgroundColor=`${randomiseColors()}`;
+            });
+        });
+};
+
+
+
+resetButton.addEventListener("click", () => resetGrid());
+colorButton.addEventListener("click", () => colorSquares());    
 
 
 
