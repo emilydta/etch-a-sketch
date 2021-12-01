@@ -9,11 +9,13 @@ function createGrid(boxes) {
         let rows = Math.sqrt(boxes);
         container.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
         container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-        const newGridSquare = document.createElement('div'); 
+        const newGridSquare = document.createElement('div');
         container.appendChild(newGridSquare);
         newGridSquare.setAttribute("class", "grid-square");
-        blackSquares();
+
     };
+    //this function was firing inside a loop, so it was firing 256 times to start. Moved it outside the loop.
+    blackSquares();
 };
 
 createGrid(256);
@@ -33,7 +35,7 @@ function resetGrid() {
         errorText.innerText = "You did not choose a number between 2-100. Please try again."
     } else {
         errorText.remove();
-        newGridDimensions = userInput*userInput; 
+        newGridDimensions = userInput*userInput;
         createGrid(newGridDimensions);
     }
 };
@@ -44,30 +46,38 @@ function randomiseColors() {
         return randomColor;
 }
 
-function colorSquares() {      
+function colorSquares() {
+    // put this here so that I could watch everytime the function was being fired. Encourage you to put these console.logs in your current code and see whats happening
+    console.log('fired color')
     let gridSquares = document.querySelectorAll(".grid-square");
-        gridSquares.forEach(gridSquare => { 
+        gridSquares.forEach(gridSquare => {
             gridSquare.addEventListener("mouseover", () => {
                 gridSquare.style.backgroundColor=`${randomiseColors()}`;
             });
         });
     colorButton.innerText="Black";
-    colorButton.addEventListener("click", () => blackSquares());
+    // Need to add a removeEventListnere because otherwise the event listener was being carried over everytime colorSquares() or blackSquares() were being called.
+    colorButton.removeEventListener("click", colorSquares);
+    // Did not need a callback here. Just simply reference the function like below. (before you were doing colorButton.addEventListener("click", () => blackSquares())) You didnt need that.
+    colorButton.addEventListener("click", blackSquares);
 };
 
 function blackSquares() {
+    // put this here so that I could watch everytime the function was being fired. Encourage you to put these console.logs in your current code and see whats happening
+    console.log('fired black')
     let gridSquares = document.querySelectorAll(".grid-square");
-        gridSquares.forEach(gridSquare => { 
+        gridSquares.forEach(gridSquare => {
             gridSquare.addEventListener("mouseover", () => {
                 gridSquare.style.backgroundColor="black";
             });
         });
     colorButton.innerText="Color";
-    colorButton.addEventListener("click", () => colorSquares());
+    // Need to add a removeEventListnere because otherwise the event listener was being carried over everytime colorSquares() or blackSquares() were being called.
+    colorButton.removeEventListener("click", blackSquares);
+    // Did not need a callback here. Just simply reference the function like below. (before you were doing colorButton.addEventListener("click", () => blackSquares())) You didnt need that.
+    colorButton.addEventListener("click", colorSquares);
 }
 
 resetButton.addEventListener("click", () => resetGrid());
-colorButton.addEventListener("click", () => colorSquares());    
-
-
-
+// did not need to set thsi here, as it was being set when you first call blackSqures() on line 18.
+// colorButton.addEventListener("click", () => colorSquares());
