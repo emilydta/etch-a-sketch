@@ -12,9 +12,7 @@ function createGrid(boxes) {
         const newGridSquare = document.createElement('div'); 
         container.appendChild(newGridSquare);
         newGridSquare.setAttribute("class", "grid-square");
-        newGridSquare.addEventListener("mouseover", () => {
-            newGridSquare.style.backgroundColor="black";
-        });
+        blackSquares();
     };
 };
 
@@ -53,9 +51,20 @@ function colorSquares() {
                 gridSquare.style.backgroundColor=`${randomiseColors()}`;
             });
         });
+    colorButton.innerText="Black";
+    colorButton.addEventListener("click", () => blackSquares());
 };
 
-
+function blackSquares() {
+    let gridSquares = document.querySelectorAll(".grid-square");
+        gridSquares.forEach(gridSquare => { 
+            gridSquare.addEventListener("mouseover", () => {
+                gridSquare.style.backgroundColor="black";
+            });
+        });
+    colorButton.innerText="Color";
+    colorButton.addEventListener("click", () => colorSquares());
+}
 
 resetButton.addEventListener("click", () => resetGrid());
 colorButton.addEventListener("click", () => colorSquares());    
