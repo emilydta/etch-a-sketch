@@ -19,19 +19,18 @@ body {
     border: 1px solid;
 }
 
-#button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-button {
+#reset-button {
     padding: 10px;
     margin: 10px;
     font-size: 20px;
-    
 }
 
 button:hover {
     cursor: pointer;
+}
+
+#color-button {
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 15px;
 }
