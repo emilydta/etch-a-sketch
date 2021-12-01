@@ -58,7 +58,7 @@ function colorSquares() {
     colorButton.innerText="Black";
     // Need to add a removeEventListnere because otherwise the event listener was being carried over everytime colorSquares() or blackSquares() were being called.
     colorButton.removeEventListener("click", colorSquares);
-    // Did not need a callback here. Just simply reference the function like below. (before you were doing colorButton.addEventListener("click", () => blackSquares())) You didnt need that.
+    // Did not need a callback here. Just simply reference the function like below. (before you were doing colorButton.addEventListener("click", () => blackSquares())) You didnt need that, as it was not making us able to remove the eventListener
     colorButton.addEventListener("click", blackSquares);
 };
 
@@ -74,7 +74,7 @@ function blackSquares() {
     colorButton.innerText="Color";
     // Need to add a removeEventListnere because otherwise the event listener was being carried over everytime colorSquares() or blackSquares() were being called.
     colorButton.removeEventListener("click", blackSquares);
-    // Did not need a callback here. Just simply reference the function like below. (before you were doing colorButton.addEventListener("click", () => blackSquares())) You didnt need that.
+     // Did not need a callback here. Just simply reference the function like below. (before you were doing colorButton.addEventListener("click", () => blackSquares())) You didnt need that, as it was not making us able to remove the eventListener
     colorButton.addEventListener("click", colorSquares);
 }
 
