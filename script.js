@@ -40,7 +40,7 @@ function resetGrid() {
 };
 
 function randomiseColors() {
-    const colorArray = ["#DFFF00", "#FFBF00", "#FF7F50", "#DE3163", "#9FE2BF", "#40E0D0", "#6495ED", "#CCCCFF"];
+    const colorArray = ["#DFFF00", "#FFBF00", "#FF7F50", "#DE3163", "#9FE2BF", "#40E0D0", "#6495ED"];
         let randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
         return randomColor;
 }
